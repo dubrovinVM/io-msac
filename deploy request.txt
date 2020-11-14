@@ -1,0 +1,43 @@
+Invoke-WebRequest -UseBasicParsing https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac
+-Header $Header
+-ContentType "application/x-www-form-urlencoded" 
+-SkipCertificateCheck
+-Method POST 
+
+curl --user deploy:Secret2010 
+-d "env=prod&project=io-msac" 
+-H "Content-Type:application/x-www-form-urlencoded" 
+-X POST "https://dp.hant.kiev.ua/deploy.php"
+
+
+$user = 'deploy'
+$pass = 'Secret2010'
+$pair = "$($user):$($pass)"
+$encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+$basicAuthValue = "Basic $encodedCreds"
+$Headers = @{ Authorization = $basicAuthValue }
+Invoke-WebRequest -Method POST -Headers $Headers -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac'
+
+pipline script:
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- script: |
+    $user = 'deploy'
+    $pass = 'Secret2010'
+    $pair = "$($user):$($pass)"
+    $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+    $basicAuthValue = "Basic $encodedCreds"
+    $Headers = @{ Authorization = $basicAuthValue }
+    Invoke-WebRequest -Method POST -Headers $Headers -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac'
+  displayName: 'Run a multi-line script'

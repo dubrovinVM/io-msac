@@ -9,7 +9,7 @@
                         </div>
 
                         <div class="row" style="margin-top:20px;margin-bottom:20px;">    
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">                       
+                            <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">                       
                                  <a href="./files/2020/afisha_world.jpg" target="_blank">
                                      <img src="./files/2020/afisha_world.jpg" width="60%">
                                  </a>
@@ -18,12 +18,12 @@
                                  <a href="./files/2020/afisha_world2.jpg" target="_blank">
                                      <img src="./files/2020/afisha_world2.jpg" width="60%">
                                  </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>  
                     <hr style="color:white !important;">
 
-                    <div class="row" style="margin-top:20px;">
+                    <!-- <div class="row" style="margin-top:20px;">
                           <div class="col-lg-4">
                               <p>Detailed information<br>World Championship</p>
                               <a href="./files/2020/world_reglament_2020_en.pdf" target="_blank" class="btn btn-default btn-lg">Download Document Eng</a>
@@ -37,7 +37,7 @@
                               <a href="./files/2020/international_competition_reglament_2020_uk.pdf" target="_blank" class="btn btn-default btn-lg">Загрузити документ</a>
                           </div>
                     </div>                   
-                    <hr style="color:white !important;">
+                    <hr style="color:white !important;"> -->
                     <div class="row" style="margin-top:40px; text-align:center">
                           <div>
                               <p>Rules<br> Military and Sports<br>All-Round Competitions (MSAC)</p>

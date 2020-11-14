@@ -11,11 +11,5 @@ pool:
 
 steps:
 - script: |
-    $user = 'deploy'
-    $pass = 'Secret2010'
-    $pair = "$($user):$($pass)"
-    $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
-    $basicAuthValue = "Basic $encodedCreds"
-    $Headers = @{ Authorization = $basicAuthValue }
-    Invoke-WebRequest -Method POST -Headers $Headers -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac'
+    curl --user deploy:Secret2010 -d "env=prod&project=io-msac" -H "Content-Type:application/x-www-form-urlencoded" -X POST "https://dp.hant.kiev.ua/deploy.php"
   displayName: 'Sending POST request to dp.hant.dkiev.ua'

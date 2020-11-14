@@ -4,15 +4,18 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: Post request Dp.hant.Kiev.ua/deploy.php
-  displayName: 'Run a one-line script'
-
 - script: |
-    Invoke-WebRequest -UseBasicParsing Dp.hant.Kiev.ua/deploy.php -ContentType "application/json" -Method POST -Body "{ 'Env':'prod', 'project':'io-msac'}"
-  displayName: 'Run a multi-line script'
+    $user = 'deploy'
+    $pass = 'Secret2010'
+    $pair = "$($user):$($pass)"
+    $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+    $basicAuthValue = "Basic $encodedCreds"
+    $Headers = @{ Authorization = $basicAuthValue }
+    Invoke-WebRequest -Method POST -Headers $Headers -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac'
+  displayName: 'Sending POST request to dp.hant.dkiev.ua'

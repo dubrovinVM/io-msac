@@ -1,22 +1,14 @@
-Invoke-WebRequest -UseBasicParsing https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac
--Header $Header
--ContentType "application/x-www-form-urlencoded" 
--SkipCertificateCheck
--Method POST 
-
-curl --user deploy:Secret2010 
--d "env=prod&project=io-msac" 
--H "Content-Type:application/x-www-form-urlencoded" 
--X POST "https://dp.hant.kiev.ua/deploy.php"
-
-
-$user = 'deploy'
-$pass = 'Secret2010'
-$pair = "$($user):$($pass)"
-$encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
-$basicAuthValue = "Basic $encodedCreds"
-$Headers = @{ Authorization = $basicAuthValue }
-Invoke-WebRequest -Method POST -Headers $Headers -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac'
+    -- $bodyParams = @{
+    --  "env"="prod";
+    --  "project"="io-msac";
+    -- }
+    -- $user = 'deploy'
+    -- $pass = 'Secret2010'
+    -- $pair = "$($user):$($pass)"
+    -- $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+    -- $basicAuthValue = "Basic $encodedCreds"
+    -- $Headers = @{ Authorization = $basicAuthValue }
+    -- Invoke-WebRequest -Method POST -Headers $Headers -Body ($params|ConvertTo-Json) -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php'
 
 pipline script:
 # Starter pipeline
@@ -32,12 +24,6 @@ pool:
 
 steps:
 
-- script: |
-    $user = 'deploy'
-    $pass = 'Secret2010'
-    $pair = "$($user):$($pass)"
-    $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
-    $basicAuthValue = "Basic $encodedCreds"
-    $Headers = @{ Authorization = $basicAuthValue }
-    Invoke-WebRequest -Method POST -Headers $Headers -ContentType "application/x-www-form-urlencoded" -uri 'https://Dp.hant.Kiev.ua/deploy.php?env=prod&project=io-msac'
+- script: |    
+    curl --user deploy:Secret2010 -d "env=prod&project=io-msac" -H "Content-Type:application/x-www-form-urlencoded" -X POST "https://dp.hant.kiev.ua/deploy.php"
   displayName: 'Run a multi-line script'

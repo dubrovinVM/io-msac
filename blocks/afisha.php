@@ -5,7 +5,7 @@
                         <h3>is conducted every year<br> more than 21 countries participate</h3>
                       
                         <div class="row" style="margin-top:20px;margin-bottom:20px;">                           
-                            <a href="https://forms.gle/HqPo4aYEGDRUkZH28" class="btn btn-default btn-lg">Registration</a>                            
+                            <a href="https://forms.gle/HqPo4aYEGDRUkZH28" class="btn btn-default btn-lg">Registration online</a>                            
                         </div>
 
                         <div class="row" style="margin-top:20px;margin-bottom:20px;">    

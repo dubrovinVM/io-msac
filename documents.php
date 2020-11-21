@@ -33,19 +33,14 @@
                         </div>
                         <h1>MSAC Documents:</h1>
 
-<?php 
-      if ($handle = opendir('/files/public')) {        
-    
-        while (false !== ($file = readdir($handle))) 
-        { 
-            if ($file != "." && $file != "..") 
-            { 
-                echo "<p>- <a href='https://www.io-msac.com/files/public/$file'>$file</a></p>";            
-            }           
-        }    
-    
-        closedir($handle); 
-    }
+<?php    
+  $dir = "files/public/*";
+  foreach(glob($dir) as $file) 
+  {  
+      $pathinfo = pathinfo($file);
+      $fileinfo = $pathinfo['filename'];
+      echo "<p>- <a href='https://www.io-msac.com/files/public/$fileinfo'>$fileinfo</a></p>";            
+  }
 ?>
 
        </div> 

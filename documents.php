@@ -39,7 +39,8 @@
   {  
       $pathinfo = pathinfo($file);
       $fileinfo = $pathinfo['filename'];
-      echo "<p>- <a href='https://www.io-msac.com/files/public/$fileinfo'>$fileinfo</a></p>";            
+      $fileextension = $pathinfo['extension'];
+      echo "<p>- <a href='https://www.io-msac.com/files/public/$fileinfo.$fileextension' target='_blank'>$fileinfo</a></p>";            
   }
 ?>
 

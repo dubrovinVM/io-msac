@@ -17,7 +17,10 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#contacts">Contacts</a>
-                    </li>                   
+                    </li>  
+                    <li>
+                        <a class="page-scroll" href="documents.php">Documents</a>
+                    </li>                  
                 </ul>               
             </div>       
 
@@ -37,7 +40,10 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#contacts">Contacts</a>
-                    </li>                   
+                    </li>      
+                    <li>
+                        <a class="page-scroll" href="documents.php">Documents</a>
+                    </li>               
                 </ul>
             </div>
         </div>

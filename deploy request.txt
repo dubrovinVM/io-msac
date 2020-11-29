@@ -27,3 +27,20 @@ steps:
 - script: |    
     curl --user deploy:Secret2010 -d "env=prod&project=io-msac" -H "Content-Type:application/x-www-form-urlencoded" -X POST "https://dp.hant.kiev.ua/deploy.php"
   displayName: 'Run a multi-line script'
+
+<?php
+
+$env = $_POST['env'];
+$project = $_POST['project'];
+
+$content = date("Y.m.d h:i:sa").' Request with params: env=['.$env.'] project=['.$project.']';
+$file = "log.txt";
+
+$current = file_get_contents($file);
+$current .= $content;
+file_put_contents($file, $current);
+
+$output = shell_exec("/var/www/scripts/softden-deploy.sh $env $project");
+
+?>
+

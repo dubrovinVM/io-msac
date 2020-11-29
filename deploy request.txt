@@ -33,14 +33,20 @@ steps:
 $env = $_POST['env'];
 $project = $_POST['project'];
 
-$content = date("Y.m.d h:i:sa").' Request with params: env=['.$env.'] project=['.$project.']';
+$content = date("Y.m.d h:i:sa").' Request with params: env=['.$env.'] project=['.$project.'] ';
 $file = "log.txt";
 
 $current = file_get_contents($file);
 $current .= $content;
 file_put_contents($file, $current);
 
-$output = shell_exec("/var/www/scripts/softden-deploy.sh $env $project");
+$output = shell_exec("bash /var/www/scripts/softden-deploy.sh $env $project 2>&1");
+
+$current = file_get_contents($file);
+$current .= 'output='.$output;
+file_put_contents($file, $current);
 
 ?>
+
+
 

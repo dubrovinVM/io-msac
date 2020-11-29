@@ -5,7 +5,7 @@
     <meta property="og:title" content="MSAC" />
     <meta name="description" content="MILITARY AND SPORTS ALL-ROUND COMPETITION">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
-    <title>MSAC</title>   
+    <title>IO MSAC</title>   
 </head>
 
 <body data-spy="scroll" data-target=".navbar">

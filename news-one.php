@@ -32,7 +32,7 @@ if (($handle = fopen("news.csv", "r")) !== FALSE)
 <?php echo "<meta property='og:title'       content='".$title."' />"; ?>
 <?php echo "<meta property='og:description' content='".$title."' />"; ?>
 <?php echo "<meta name='description'        content='".$title."' />"; ?>
-<?php echo "<title>".$title."</title>'"; ?>   
+<?php echo "<title>".$title."</title>"; ?>   
 </head>
 <body data-spy="scroll" data-target=".navbar">
 <!-- Navigation -->
